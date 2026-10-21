@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>我的转行工作台 · 医学 → 医疗IT + CS</title>
+<style>
+  :root{
+    --bg:#f5f7fa; --card:#ffffff; --ink:#243042; --muted:#6b7686;
+    --line:#e4e8ef; --blue:#185fa5; --blue-soft:#e6f1fb;
+    --amber:#ba7517; --amber-soft:#faefda; --green:#3b8a4f; --green-soft:#e7f4ea;
+  }
+  *{box-sizing:border-box;}
+  body{margin:0;background:var(--bg);color:var(--ink);
+    font-family:-apple-system,"PingFang SC","Microsoft YaHei",sans-serif;line-height:1.6;}
+  .wrap{max-width:920px;margin:0 auto;padding:28px 18px 60px;}
+  header h1{font-size:22px;margin:0 0 4px;}
+  header p{color:var(--muted);margin:0 0 18px;font-size:14px;}
+  .overall{background:var(--card);border:1px solid var(--line);border-radius:14px;
+    padding:16px 18px;margin-bottom:22px;}
+  .overall .bar{height:10px;background:#eef1f6;border-radius:99px;overflow:hidden;margin-top:10px;}
+  .overall .fill{height:100%;width:0;background:linear-gradient(90deg,var(--blue),#3a9bd6);transition:width .4s;}
+  .overall .num{font-size:13px;color:var(--muted);margin-top:8px;}
+  .track{background:var(--card);border:1px solid var(--line);border-radius:14px;
+    padding:18px 18px 8px;margin-bottom:20px;}
+  .track h2{font-size:17px;margin:0 0 2px;display:flex;align-items:center;gap:8px;}
+  .track .sub{font-size:13px;color:var(--muted);margin:0 0 12px;}
+  .track .bar{height:8px;background:#eef1f6;border-radius:99px;overflow:hidden;margin-bottom:14px;}
+  .track .fill{height:100%;width:0;transition:width .4s;border-radius:99px;}
+  .blue .fill{background:var(--blue);} .amber .fill{background:var(--amber);}
+  .item{display:flex;gap:11px;align-items:flex-start;padding:10px 10px;border-radius:10px;
+    cursor:pointer;transition:background .15s;}
+  .item:hover{background:#f7f9fc;}
+  .item input{margin-top:5px;width:17px;height:17px;accent-color:var(--blue);cursor:pointer;flex:none;}
+  .item .txt{font-size:14.5px;}
+  .item .txt b{font-weight:600;}
+  .item .tag{display:inline-block;font-size:11px;padding:1px 7px;border-radius:99px;
+    margin-left:6px;vertical-align:middle;}
+  .tag.core{background:var(--amber-soft);color:var(--amber);}
+  .tag.moat{background:var(--green-soft);color:var(--green);}
+  .item.done .txt{color:var(--muted);text-decoration:line-through;}
+  .res{background:#fbfcfe;border:1px dashed var(--line);border-radius:10px;
+    padding:12px 14px;margin:6px 0 14px;font-size:13px;color:var(--muted);}
+  .res a{color:var(--blue);text-decoration:none;}
+  .res a:hover{text-decoration:underline;}
+  .foot{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px;
+    font-size:12.5px;color:var(--muted);margin-top:6px;}
+  .btn{border:1px solid var(--line);background:#fff;color:var(--ink);border-radius:9px;
+    padding:7px 13px;font-size:13px;cursor:pointer;}
+  .btn:hover{background:#f2f5f9;}
+  .hint{font-size:12px;color:var(--muted);margin:2px 0 22px;}
+  .link{color:var(--blue);text-decoration:none;}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <h1>我的转行工作台</h1>
+    <p>医学 → 医疗信息化 / IT + 补 CS 底子 ｜ 进度自动存在本机浏览器</p>
+  </header>
+
+  <div class="overall">
+    <div style="display:flex;justify-content:space-between;align-items:center;">
+      <b>总进度</b>
+      <span class="num" id="overallNum">0 / 0</span>
+    </div>
+    <div class="bar"><div class="fill" id="overallFill"></div></div>
+    <div class="num">两条轨道一起算。换设备不同步，重要进度记得也更新到 GitHub 仓库 README。</div>
+  </div>
+
+  <!-- 轨道一：医疗信息化 -->
+  <div class="track blue">
+    <h2>轨道一 · 医疗信息化 / IT（6 阶段）</h2>
+    <p class="sub">零基础医学生转医疗 IT 的主线，约 6 个月</p>
+    <div class="bar"><div class="fill" id="t1fill"></div></div>
+    <label class="item"><input type="checkbox" data-id="t1-0"><span class="txt"><b>阶段 0｜认知铺垫</b>：搞懂 HIS / EMR / LIS / PACS；了解电子病历评级、互联互通测评</span></label>
+    <label class="item"><input type="checkbox" data-id="t1-1"><span class="txt"><b>阶段 1｜数据库与 SQL</b><span class="tag core">★核心</span>：从库里取数、核对、出报表——医疗 IT 命脉</span></label>
+    <label class="item"><input type="checkbox" data-id="t1-2"><span class="txt"><b>阶段 2｜Python 数据处理</b>：pandas 读库 / Excel、清洗、画图，让取数自动化</span></label>
+    <label class="item"><input type="checkbox" data-id="t1-3"><span class="txt"><b>阶段 3｜医疗信息标准</b><span class="tag moat">护城河</span>：HL7 / FHIR、ICD 编码、医保结算、EMPI</span></label>
+    <label class="item"><input type="checkbox" data-id="t1-4"><span class="txt"><b>阶段 4｜实战项目 + GitHub</b>：做"数据质量检查"或"随访看板"小项目</span></label>
+    <label class="item"><input type="checkbox" data-id="t1-5"><span class="txt"><b>阶段 5｜求职与认证</b>：医院信息科 / 厂商实施·产品·数据治理；软考加分</span></label>
+  </div>
+
+  <!-- 轨道二：补 CS 底子 -->
+  <div class="track amber">
+    <h2>轨道二 · 补 CS 底子（路线 C）</h2>
+    <p class="sub">医学为主，保留选项。只补最有用的 3 块，不用重读大一</p>
+    <div class="bar"><div class="fill" id="t2fill"></div></div>
+    <label class="item"><input type="checkbox" data-id="t2-0"><span class="txt"><b>① Python 编程</b>：Anaconda + 基础语法，先会写（与轨道一重叠）</span></label>
+    <label class="item"><input type="checkbox" data-id="t2-1"><span class="txt"><b>② 数据结构与算法</b><span class="tag core">CS 灵魂</span>：怎么摆数据方便找、怎么写步骤解决问题</span></label>
+    <label class="item"><input type="checkbox" data-id="t2-2"><span class="txt"><b>③ 数据库 SQL</b>：与轨道一阶段 1 重叠，一石二鸟，不用单独补</span></label>
+    <div class="res">
+      <b>推荐资源：</b>
+      <a href="https://www.hello-algo.com/" target="_blank" rel="noopener">《Hello 算法》</a>（中文图解开源书）｜
+      LeetCode 简单题（刷十几道入门）｜
+      B 站《计算机科学速成课》（建立直觉）<br>
+      <b>每周节奏：</b>平时随手练 Python；周末 3–5 小时啃"数据结构与算法"；目标不是快，是<b>真懂</b>。
+    </div>
+  </div>
+
+  <p class="hint">提示：勾选状态只存在你这台电脑的浏览器里。想长期留存，把进度也更新到
+    <a class="link" href="https://github.com/liangjf43/medical-it-learning" target="_blank" rel="noopener">GitHub 仓库 README</a>
+    （把 <code>- [ ]</code> 改成 <code>- [x]</code>）。</p>
+
+  <div class="foot">
+    <span>仓库：<a class="link" href="https://github.com/liangjf43/medical-it-learning" target="_blank" rel="noopener">github.com/liangjf43/medical-it-learning</a></span>
+    <button class="btn" id="resetBtn">重置本机进度</button>
+  </div>
+</div>
+
+<script>
+  const KEY = 'medical-it-learning-progress';
+  function load(){ try{return JSON.parse(localStorage.getItem(KEY))||{};}catch(e){return {};} }
+  function save(s){ localStorage.setItem(KEY, JSON.stringify(s)); }
+  const state = load();
+  const boxes = document.querySelectorAll('input[type=checkbox]');
+
+  function refresh(){
+    let total=0, done=0;
+    const tracks={t1:0,t2:0}, trackDone={t1:0,t2:0};
+    boxes.forEach(b=>{
+      const id=b.dataset.id; total++;
+      if(state[id]){ b.checked=true; b.closest('.item').classList.add('done'); done++; }
+      else { b.checked=false; b.closest('.item').classList.remove('done'); }
+      const tk=id.slice(0,2); tracks[tk]++; if(state[id]) trackDone[tk]++;
+    });
+    document.getElementById('overallNum').textContent = done+' / '+total;
+    document.getElementById('overallFill').style.width = (total? done/total*100:0)+'%';
+    document.getElementById('t1fill').style.width = (tracks.t1? trackDone.t1/tracks.t1*100:0)+'%';
+    document.getElementById('t2fill').style.width = (tracks.t2? trackDone.t2/tracks.t2*100:0)+'%';
+  }
+
+  boxes.forEach(b=>{
+    b.addEventListener('change', ()=>{
+      const id=b.dataset.id;
+      if(b.checked) state[id]=1; else delete state[id];
+      save(state); refresh();
+    });
+  });
+
+  document.getElementById('resetBtn').addEventListener('click', ()=>{
+    if(confirm('确定清空本机所有勾选进度？')){ localStorage.removeItem(KEY); refresh(); }
+  });
+
+  refresh();
+</script>
+</body>
+</html>
