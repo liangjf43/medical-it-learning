@@ -1,0 +1,69 @@
+# medical-it-learning
+
+零基础医学生 → 医疗信息化 / IT 的学习仓库。这里记录我的学习过程：数据库 SQL、Python 数据处理、医疗信息标准、实战项目。每完成一个阶段，把下方 `- [ ]` 改成 `- [x]` 并记录笔记。
+
+## 这个仓库是做什么的
+- 用 Git / GitHub 管理学习进度（也是我的"技术简历"）
+- 放练习代码、数据、每周笔记
+- 最终产出 1–2 个可写进简历的小项目
+
+## 环境准备
+- **Anaconda**（Python 全家桶）：装好后打开 "Anaconda Prompt" 或终端，输入 `conda --version` 验证是否成功。
+- **VS Code**（编辑器，推荐）。
+- **Git + GitHub**：本仓库用 Git 管理，远程仓库在 GitHub（仓库名 `medical-it-learning`）。
+
+> 装 Anaconda 时如果嫌大，可换 **Miniconda**（只含 Python + conda，命令完全一样，更小巧）。
+
+## 学习路线图（6 阶段）
+- [ ] 阶段 0｜认知铺垫（2 周）：搞懂 HIS / EMR / LIS / PACS；了解电子病历评级、互联互通测评、公立医院考核等政策语境
+- [ ] 阶段 1｜数据库与 SQL（第 1–2 月）★核心：MySQL / PostgreSQL；重点练"从库里取数、核对、出报表"——医疗信息化的命脉
+- [ ] 阶段 2｜Python 数据处理（第 2–3 月）：Python 基础 + pandas 读库 / Excel、清洗、画图，让取数自动化
+- [ ] 阶段 3｜医疗信息标准（第 3–4 月）护城河：HL7 v2 / FHIR、ICD 编码、医保结算、主数据 EMPI——纯码农不懂，你懂就是溢价
+- [ ] 阶段 4｜实战项目 + GitHub（第 4–6 月）：做一个"数据质量检查工具"或"随访看板"小项目，写清 README
+- [ ] 阶段 5｜求职与认证（并行）：医院信息科 / 厂商(卫宁·创业慧康·东软)实施·产品·数据治理；软考「系统集成项目管理工程师」加分
+
+## 每周任务清单
+### 第 1 周
+- [ ] 安装 Anaconda，终端输入 `conda --version` 能出版本号
+- [ ] 安装 VS Code
+- [ ] 在 SQLZoo / 牛客 SQL 题库做前 10 道 SELECT 题
+- [ ] 本仓库 `git init`，写完 README 提交第一笔
+
+### 第 2 周
+- [ ] 学关系库概念：表 / 字段 / 主键 / 外键
+- [ ] 练 SELECT / WHERE / ORDER BY / 聚合函数 COUNT·SUM·AVG
+- [ ] 用一份模拟数据写 3 个统计查询
+
+### 第 3–4 周
+- [ ] 多表 JOIN、GROUP BY 分组、窗口函数
+- [ ] 完成一个"某科室月度出院统计"小查询作业，存到 `practice/`
+
+### 第 2 月
+- [ ] 装 PostgreSQL，建一个本地练习库
+- [ ] 用 Python + pandas 读取一份 Excel 并清洗、画一张图
+
+### 第 3–4 月
+- [ ] 读一段 HL7 v2 消息，逐字段理解含义
+- [ ] 对照互联互通测评指标，写一份"为什么要标准化"的笔记
+
+### 第 4–6 月
+- [ ] 做实战项目：数据质量检查工具 或 随访看板
+- [ ] 项目写清 README（背景—方法—结论），放进本仓库
+
+## 目录结构
+- `notes/`：每周学习笔记（按周建文件，如 `week1.md`）
+- `practice/`：SQL / Python 练习代码与数据
+
+## 资源
+- SQL 练习：SQLZoo、牛客 SQL 题库
+- 官方文档：Anaconda、pandas、PostgreSQL
+- 政策规范：卫健委「电子病历系统功能应用水平分级评价」「医院信息互联互通标准化成熟度测评」
+
+## 如何同步到 GitHub
+仓库初始化后，把远程仓库 `medical-it-learning` 关联并推送：
+```bash
+git remote add origin https://github.com/<你的GitHub用户名>/medical-it-learning.git
+git branch -M main
+git push -u origin main
+```
+之后每次学习：改文件 → `git add .` → `git commit -m "第N周：..."` → `git push`。
